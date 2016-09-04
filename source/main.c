@@ -17,7 +17,8 @@ int main(int argc, char **argv)
     APT_CheckNew3DS(&isNew3DS);
     if (isNew3DS)
     {
-        u8 Screens = (u8)GSPLCD_GetVendor();
+        u8 Screens = 0;
+        GSPLCD_GetVendors(&Screens);
         printf("\nScreen Info:\n\n");
         switch ((Screens >> 4) & 0xF)
         {
