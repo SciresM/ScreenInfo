@@ -9,11 +9,13 @@ int main(int argc, char **argv)
     aptInit();
     gfxInitDefault();
     hidInit();
-    ptmSysmInit();
     gspLcdInit();
     
     consoleInit(GFX_TOP, NULL);
-    if (PTMSYSM_CheckNew3DS())
+    
+    bool isNew3DS = 0;
+    APT_CheckNew3DS(&isNew3DS);
+    if (isNew3DS)
     {
         u8 Screens = (u8)GSPLCD_GetVendor();
         printf("\nScreen Info:\n\n");
@@ -64,7 +66,6 @@ int main(int argc, char **argv)
     aptExit();
     gfxExit();
     hidExit();
-    ptmSysmExit();
     gspLcdExit();
     return 0;
 }
