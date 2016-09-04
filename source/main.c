@@ -56,7 +56,6 @@ int main(int argc, char **argv)
         u32 button = hidKeysDown(); // Checks which keys are up and which ones are down
         if (button & KEY_START)
         {
-            CFG_UpdateConfigNANDSavegame();
             break;
         }
     } 
